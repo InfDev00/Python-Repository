@@ -1,7 +1,0 @@
-def binary_search(l, r):
-    print(l, r)
-    if l >= r:
-        return 1
-    else:
-        mid = (l+r)//2
-        return binary_search(l, mid) + binary_search(mid+1, r)
