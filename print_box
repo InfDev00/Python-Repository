@@ -1,5 +1,12 @@
-def print_box(box, x, y):
-    for i in range(y):
-        for j in range(x):
+def print_box(box):
+    for i in range(len(box)):
+        for j in range(len(box[i])):
             print(box[i][j], end=" ")
         print()
+
+
+#def print_box(box, x, y):
+#    for i in range(y):
+#        for j in range(x):
+#            print(box[i][j], end=" ")
+#        print()
