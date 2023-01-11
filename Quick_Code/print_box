@@ -1,5 +1,7 @@
 def print_box(box):
-    for i in range(len(box)):
-        for j in range(len(box[i])):
-            print(box[i][j], end=" ")
-        print()
+    if type(box) is dict:
+        for i in box:
+            print(i, box[i])
+    elif type(box) is list:
+        for i in box:
+            print(i)
