@@ -1,0 +1,26 @@
+def merge_sort(l, r, ret):
+    if l < r:
+        mid = (l + r) // 2
+        merge_sort(l, mid, ret)
+        merge_sort(mid + 1, r, ret)
+        merge(l, r, mid, ret)
+
+
+def merge(l, r, mid, ret):
+    x, y = l, mid + 1
+    ans = list()
+    while x <= mid and y <= r:
+        if ret[x] < ret[y]:
+            ans.append(ret[x])
+            x += 1
+        else:
+            ans.append(ret[y])
+            y += 1
+    while x <= mid:
+        ans.append(ret[x])
+        x += 1
+    while y <= r:
+        ans.append(ret[y])
+        y += 1
+    for j in range(l, r+1):
+        ret[j] = ans[j - l]

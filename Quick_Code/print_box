@@ -1,0 +1,7 @@
+def print_box(box):
+    if type(box) is dict:
+        for i in box:
+            print(i, box[i])
+    elif type(box) is list:
+        for i in box:
+            print(i)
