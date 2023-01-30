@@ -1,0 +1,20 @@
+visited = [[]]
+
+def BFS(x, y):
+    queue = deque()
+    visited[x][y] = True
+    queue.append((x, y))
+
+    while len(queue) != 0: #while not empty
+        cur = queue.popleft()
+        
+        //
+        #escape condition
+        //
+
+        for i in range(8):#next states
+            nxt_x, nxt_y = cur[0] + mv_x[i], cur[1] + mv_y[i]
+            if 0 <= nxt_x < board_size and 0 <= nxt_y < board_size:
+                if not visited[nxt_x][nxt_y]:
+                    visited[nxt_x][nxt_y] = True
+                    queue.append((nxt_x, nxt_y))
