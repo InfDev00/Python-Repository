@@ -1,0 +1,14 @@
+dist = [INF]*(n+1)
+
+def bellman_ford(srt): #return whether it has negative cycle or not
+    dist[srt] = 0
+
+    for i in range(n): #~n-1th: update, nth: check negative cycle
+        for j in range(m):
+            begin, arrive, time = buses[j]
+            if dist[begin] != INF and dist[begin] + time < dist[arrive]:
+                dist[arrive] = dist[begin] + time
+                if i == n - 1: # if there is no nega cycle, it will not change at nth
+                    return True
+    return False
+
