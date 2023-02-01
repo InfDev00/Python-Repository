@@ -1,0 +1,27 @@
+from collections import deque
+
+def dijkstra(srt, l): # by queue
+    global costs, visited
+    costs = [INF for _ in range(l + 1)] # every costs is unknown
+    visited = [False for _ in range(l + 1)] # every nodes are unvisited
+    costs[srt] = 0 # cost to start node is 0
+    queue = deque()
+    queue.append(srt)
+
+    while len(queue) != 0:
+        cur = queue.popleft() # current node ( = shortest path from before node)
+        visited[cur] = True
+        for tmp in roads[cur]: # path of all node from current node
+            nxt, nxt_cost = tmp[0], tmp[1]
+            if not visited[nxt]:
+                costs[nxt] = min(costs[nxt], costs[cur] + nxt_cost) # renew the cost of start node to next node
+
+        min_cost = INF # next node is using the min path
+        nxt_srt = -1
+        for i in range(1, l+1):
+            if min_cost > costs[i] and visited[i] != True:
+                min_cost = costs[i]
+                nxt_srt = i
+
+        if nxt_srt != -1:
+            queue.append(nxt_srt)
