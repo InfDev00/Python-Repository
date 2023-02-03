@@ -1,0 +1,7 @@
+def func(idx, add, cnt):
+    if idx >= n // (cnt + 1):
+        sums[cnt].append(add)
+        return 0
+
+    func(idx + 1, add + weight[idx], cnt)
+    func(idx + 1, add, cnt)
