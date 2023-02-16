@@ -1,0 +1,6 @@
+ans = 0
+for i in range(n):
+    ans += Xs[i] * Ys[i+1] - Xs[i+1] * Ys[i]
+    
+ans = abs(ans)/2
+
