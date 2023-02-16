@@ -1,0 +1,17 @@
+def DFS(cur):
+    visited[cur] = True
+    dp_use[cur].append(cur)#
+    dp_use[cur][0] += node[cur]#
+
+    for nxt in edge[cur]:
+        if not visited[nxt]:
+            visited[nxt] = True
+            DFS(nxt)
+            dp_non[cur][0] += max(dp_use[nxt][0], dp_non[nxt][0])#
+            dp_non[cur].extend(dp_use[nxt][1:] if dp_use[nxt] > dp_non[nxt] else dp_non[nxt][1:])#
+
+            dp_use[cur][0] += dp_non[nxt][0]#
+            dp_use[cur].extend(dp_non[nxt][1:])#
+            
+
+add # at DFS to use DP
