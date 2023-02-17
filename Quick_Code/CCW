@@ -1,0 +1,12 @@
+# by two dimention vector cross product
+
+def CCW(l1, l2):
+    vec1 = [l1[0] - l2[0], l1[1]-l2[1]]
+    vec2 = [l1[2]-l2[0], l1[3] - l2[1]]
+    vec3 = [l2[2] - l2[0], l2[3] - l2[1]]
+
+    t1 = vec3[0] * vec1[1] - vec3[1] * vec1[0]
+    t2 = vec3[0] * vec2[1] - vec3[1] * vec2[0]
+    if t1 < 0 < t2 or t2 < 0 < t1:
+        return True
+    return False
